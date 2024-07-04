@@ -1,0 +1,28 @@
+server:
+  port: 8099
+
+spring:
+  application:
+    name: RecipeBook
+  datasource:
+    url: jdbc:postgresql://localhost:5432/recipeBook
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: select 1
+      connection-timeout: 30000
+      maximum-pool-size: 200
+      minimum-idle: 20
+      idle-timeout: 300000
+      leak-detection-threshold: 60000
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        order_inserts: true
+        jdbc.time_zone: UTC
+        types.print.banner: false
